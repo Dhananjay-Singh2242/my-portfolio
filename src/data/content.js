@@ -1,4 +1,4 @@
-// Source of truth: Resume_Dhananjay11.pdf — keep claims in sync with the resume.
+// Source of truth: Resume_Dhananjay.pdf — keep claims in sync with the resume.
 export const profile = {
   name: 'Dhananjay Singh',
   role: 'Java Backend Developer',
