@@ -1692,3 +1692,121 @@
   background: #fff;
   box-shadow: 0 6px 14px color-mix(in srgb, var(--brand, #64748b) 25%, transparent);
 }
+
+/* ==========================================================
+   Woodland backdrop — backgrounds only. Dusk scene in the hero,
+   cream sections, wavy plum bands, moss contact panel.
+   ========================================================== */
+:root {
+  --bg: #f4ecdd;
+  --bg-muted: #ebe3d3;
+  --plum: #4a3f6b;
+  --plum-deep: #2f2748;
+  --moss: #3b4a38;
+  --cream: #f7f0e3;
+}
+
+.atmosphere {
+  background: var(--bg);
+}
+
+/* legibility on every backdrop: the glass bar stays translucent but lighter */
+.nav,
+.nav--scrolled {
+  background: rgba(250, 244, 233, 0.72);
+}
+
+/* —— Hero: sky, clouds, then the land anchored to the bottom edge —— */
+.hero {
+  background:
+    url('./assets/backdrop/hollow-land.svg') bottom center / max(100%, 1000px) clamp(170px, 36%, 300px) no-repeat,
+    url('./assets/backdrop/hollow-sky.svg') top center / cover no-repeat,
+    linear-gradient(180deg, #9a8ace 0%, #bcaee0 26%, #dac8e6 48%, #f4d9c6 70%, #fbe6cd 100%);
+}
+
+/* —— Plum bands with wavy edges —— */
+.section--band {
+  --wave-h: clamp(26px, 4.5vw, 62px);
+  border-block: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 70' preserveAspectRatio='none'%3E%3Cpath fill='%23f4ecdd' d='M0 0H1600V30C1480 62 1350 16 1190 34S900 66 720 38 420 10 270 34 90 56 0 36Z'/%3E%3C/svg%3E") top center / 100% var(--wave-h) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 70' preserveAspectRatio='none'%3E%3Cpath fill='%23f4ecdd' d='M0 70H1600V34C1500 10 1360 54 1200 36S920 8 740 32 440 60 280 36 100 14 0 34Z'/%3E%3C/svg%3E") bottom center / 100% var(--wave-h) no-repeat,
+    radial-gradient(ellipse 60% 40% at 85% 12%, rgba(143, 118, 190, 0.35), transparent 70%),
+    var(--plum);
+}
+
+/* headings sit directly on the plum, so they need the light ink */
+.section--band .section__label,
+.section--band .section__title {
+  color: var(--cream);
+}
+
+/* —— Cream sections: a sprout and a star, kept quiet in the margins —— */
+.section:not(.section--band):not(.contact-wrap) {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke='%235b7350' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='.28'%3E%3Cpath d='M46 112C50 84 62 64 84 44'/%3E%3Cpath d='M58 78C42 78 28 70 22 54 40 50 54 60 58 78Z'/%3E%3Cpath d='M70 58C68 38 78 22 98 14 104 34 92 52 70 58Z'/%3E%3C/svg%3E") left max(1rem, calc(50% - 720px)) bottom 2.5rem / 96px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23d9a05b' opacity='.75' d='M20 0C21.500 12 28 18.500 40 20 28 21.500 21.500 28 20 40 18.500 28 12 21.500 0 20 12 18.500 18.500 12 20 0Z'/%3E%3C/svg%3E") right max(1.25rem, calc(50% - 700px)) top 4rem / 30px no-repeat;
+}
+
+.case .case__tabs,
+.skills__filters {
+  background: #efe6d6;
+}
+
+/* —— Dark panels move from navy to plum —— */
+.about__panel {
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(143, 118, 190, 0.45), transparent 60%),
+    var(--plum-deep);
+}
+
+.case .case__visual,
+.showcase__stack {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(143, 118, 190, 0.4), transparent 60%),
+    var(--plum-deep);
+}
+
+/* —— Contact: moss panel with a hairline inner frame —— */
+.contact {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23d9a05b' d='M20 0C21.500 12 28 18.500 40 20 28 21.500 21.500 28 20 40 18.500 28 12 21.500 0 20 12 18.500 18.500 12 20 0Z'/%3E%3C/svg%3E") right 9% top 16% / 34px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke='%23a9bd97' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='.55'%3E%3Cpath d='M46 112C50 84 62 64 84 44'/%3E%3Cpath d='M58 78C42 78 28 70 22 54 40 50 54 60 58 78Z'/%3E%3Cpath d='M70 58C68 38 78 22 98 14 104 34 92 52 70 58Z'/%3E%3C/svg%3E") left 6% bottom 8% / 92px no-repeat,
+    var(--moss);
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(233, 226, 205, 0.22);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+/* —— Footer: slightly deeper cream strip —— */
+.footer {
+  background: var(--bg-muted);
+}
+
+@media (max-width: 900px) {
+  /* keep the hero copy clear of the hills once the layout stacks */
+  .hero {
+    padding-bottom: 150px;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav__links {
+    background: rgba(247, 240, 227, 0.98);
+  }
+
+  /* the corner ornaments would crowd the text on small screens */
+  .contact {
+    background: var(--moss);
+  }
+
+  .section:not(.section--band):not(.contact-wrap) {
+    background: none;
+  }
+}
