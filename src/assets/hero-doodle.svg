@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 570" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    .line { stroke: #15122b; stroke-width: 2.5; }
+    .thin { stroke: #15122b; stroke-width: 1.8; }
+    .label { fill: #15122b; font: 600 17px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; text-anchor: middle; }
+    .hand { fill: #15122b; font: 700 30px 'Bradley Hand', 'Segoe Print', 'Marker Felt', 'Comic Sans MS', cursive; text-anchor: middle; }
+    .spine { font: 700 13.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; letter-spacing: 1.2px; text-anchor: middle; }
+    .mono { font: 700 26px Menlo, Consolas, 'Courier New', monospace; text-anchor: middle; }
+    .orbit { stroke: #77728f; stroke-width: 2.5; stroke-dasharray: 10 11; animation: flow 3s linear infinite; }
+    .caret { animation: blink 1.1s steps(1) infinite; }
+    @keyframes flow { to { stroke-dashoffset: -42; } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .orbit, .caret { animation: none; }
+    }
+  </style>
+  <defs>
+    <path id="star" d="M0 -8C.9 -2.4 2.4 -.9 8 0 2.4 .9 .9 2.4 0 8 -.9 2.4 -2.4 .9 -8 0 -2.4 -.9 -.9 -2.400 0 -8Z" fill="#9c93d6"/>
+  </defs>
+
+  <rect width="640" height="570" fill="#ffffff"/>
+
+  <!-- tagline -->
+  <text class="hand" x="320" y="50">code. build. debug. repeat.</text>
+
+  <!-- paper plane and its dashed trail -->
+  <path class="thin" stroke-dasharray="6 7" d="M30 118C52 92 40 70 62 62"/>
+  <path class="line" d="M62 54L104 34 92 74 78 62 70 72 70 58Z"/>
+  <path class="thin" d="M104 34L78 62"/>
+
+  <!-- terminal bubble -->
+  <path class="line" d="M548 34H600C606 34 610 38 610 44V76C610 82 606 86 600 86H586V100L572 86H548C542 86 538 82 538 76V44C538 38 542 34 548 34Z"/>
+  <path stroke="#1a8f4c" stroke-width="3" d="M556 50L568 60 556 70M574 72H590"/>
+
+  <!-- orbit around the laptop -->
+  <path class="orbit" d="M122 335A198 198 0 0 1 518 335"/>
+  <g stroke="#77728f" stroke-width="2.5">
+    <path d="M122 335H106M153 228L126 208M265 147L259 130M375 147L381 130M487 228L514 208M518 335H534"/>
+  </g>
+
+  <!-- Spring Boot -->
+  <g>
+    <rect class="line" x="42" y="284" width="62" height="62" rx="14"/>
+    <path fill="#1a8f4c" d="M90 298C92 318 82 334 62 332 56 332 54 328 54 324 54 310 72 310 90 298Z"/>
+    <path stroke="#ffffff" stroke-width="2.5" d="M60 327C66 319 74 314 82 311"/>
+    <text class="label" x="73" y="370">Spring Boot</text>
+  </g>
+
+  <!-- REST APIs -->
+  <g transform="translate(-26 0)">
+    <rect class="line" x="84" y="148" width="62" height="62" rx="14"/>
+    <text class="mono" x="115" y="188" fill="#1b66c9">{ }</text>
+    <text class="label" x="115" y="234">REST APIs</text>
+  </g>
+
+  <!-- Security -->
+  <g>
+    <path class="line" d="M252 72L282 84V106C282 124 270 136 252 142 234 136 222 124 222 106V84Z"/>
+    <path stroke="#a86f00" stroke-width="3.500" d="M238 106L249 117 267 95"/>
+    <text class="label" x="176" y="112">Security</text>
+  </g>
+
+  <!-- Redis -->
+  <g>
+    <path class="line" stroke="#d13f37" style="stroke:#d13f37" d="M388 88L420 74 452 88 420 102Z"/>
+    <path style="stroke:#d13f37" stroke-width="2.5" d="M388 102L420 116 452 102M388 116L420 130 452 116"/>
+    <text class="label" x="490" y="108">Redis</text>
+  </g>
+
+  <!-- RabbitMQ -->
+  <g transform="translate(26 0)">
+    <rect class="line" x="494" y="148" width="62" height="62" rx="14"/>
+    <g stroke="#c95f06" stroke-width="2.5">
+      <rect x="505" y="170" width="11" height="18" rx="2"/>
+      <rect x="520" y="170" width="11" height="18" rx="2"/>
+      <path d="M535 179H548M543 173L549 179 543 185"/>
+    </g>
+    <text class="label" x="525" y="234">RabbitMQ</text>
+  </g>
+
+  <!-- Kubernetes -->
+  <g>
+    <rect class="line" x="536" y="284" width="62" height="62" rx="14"/>
+    <g stroke="#1b66c9" stroke-width="2.5">
+      <path d="M567 295L585 304 589 323 577 338H557L545 323 549 304Z"/>
+      <circle cx="567" cy="317" r="5"/>
+      <path d="M567 312V295M572 317L589 323M564 321L557 338M570 321L577 338M562 317L545 323"/>
+    </g>
+    <text class="label" x="567" y="370">Kubernetes</text>
+  </g>
+
+  <!-- laptop -->
+  <g>
+    <rect x="212" y="212" width="216" height="146" rx="10" fill="#2b2a35" stroke="#15122b" stroke-width="2.5"/>
+    <rect x="222" y="222" width="196" height="126" rx="4" fill="#0e0d16"/>
+    <g stroke-width="4.5">
+      <path stroke="#f5c84c" d="M234 236H262"/><path stroke="#6cb6ff" d="M270 236H316"/>
+      <path stroke="#7ee081" d="M246 250H296"/><path stroke="#ff7eb6" d="M304 250H338"/>
+      <path stroke="#6cb6ff" d="M246 264H274"/><path stroke="#f4f2ff" d="M282 264H352"/>
+      <path stroke="#7ee081" d="M260 278H326"/><path stroke="#f5c84c" d="M334 278H372"/>
+      <path stroke="#ff7eb6" d="M260 292H292"/><path stroke="#6cb6ff" d="M300 292H344"/>
+      <path stroke="#f4f2ff" d="M246 306H284"/>
+      <path stroke="#f5c84c" d="M234 320H254"/>
+      <path class="caret" stroke="#7ee081" d="M262 320H274"/>
+    </g>
+    <text class="mono" x="388" y="340" fill="#f4f2ff" style="font-size:17px">&lt;/&gt;</text>
+    <path d="M212 358H428L456 398C458 402 456 406 450 406H190C184 406 182 402 184 398Z" fill="#eceaf4" stroke="#15122b" stroke-width="2.5"/>
+    <g stroke="#77728f" stroke-width="3" stroke-dasharray="7 5">
+      <path d="M222 368H418M214 378H426"/>
+    </g>
+    <rect x="288" y="386" width="64" height="13" rx="3" stroke="#77728f" stroke-width="2"/>
+  </g>
+
+  <!-- books -->
+  <g>
+    <g class="line" fill="#f4f3fa">
+      <rect x="62" y="436" width="172" height="30" rx="4"/>
+      <rect x="52" y="470" width="182" height="30" rx="4"/>
+      <rect x="62" y="504" width="172" height="30" rx="4"/>
+    </g>
+    <path class="thin" d="M214 442H234M214 450H234M214 458H234M214 476H234M214 484H234M214 492H234M214 510H234M214 518H234M214 526H234"/>
+    <text class="spine" x="136" y="456" fill="#1b66c9">JAVA</text>
+    <text class="spine" x="132" y="490" fill="#1a8f4c">MICROSERVICES</text>
+    <text class="spine" x="136" y="524" fill="#a86f00">DSA</text>
+  </g>
+
+  <!-- mug -->
+  <g>
+    <path class="thin" d="M326 436C320 428 332 422 326 412M346 436C340 428 352 422 346 412"/>
+    <path class="line" fill="#f4f3fa" d="M296 446H376V516C376 526 370 534 360 534H312C302 534 296 526 296 516Z"/>
+    <path class="line" d="M376 462H388C402 462 402 500 388 500H376"/>
+    <text class="label" x="336" y="484" style="font-size:14.500px">keep</text>
+    <text class="label" x="336" y="501" style="font-size:14.500px">learning</text>
+    <rect class="thin" x="310" y="510" width="52" height="10" rx="5"/>
+    <rect x="312" y="512" width="34" height="6" rx="3" fill="#1a8f4c"/>
+  </g>
+
+  <!-- plant -->
+  <g>
+    <path class="line" fill="#f4f3fa" d="M482 490H560L552 534H490Z"/>
+    <path stroke="#3f9a55" stroke-width="2.5" d="M521 490V444"/>
+    <path fill="#3f9a55" stroke="#15122b" stroke-width="1.800" d="M521 456C512 436 516 420 521 410 526 420 530 436 521 456Z"/>
+    <path fill="#55b86c" stroke="#15122b" stroke-width="1.800" d="M521 470C505 468 492 458 486 442 504 442 516 452 521 470Z"/>
+    <path fill="#55b86c" stroke="#15122b" stroke-width="1.800" d="M521 470C537 468 550 458 556 442 538 442 526 452 521 470Z"/>
+  </g>
+
+  <!-- sparkles -->
+  <use href="#star" x="196" y="196"/>
+  <use href="#star" x="444" y="196"/>
+  <use href="#star" x="320" y="164"/>
+  <use href="#star" x="26" y="222"/>
+  <use href="#star" x="614" y="232"/>
+  <use href="#star" x="262" y="428"/>
+  <use href="#star" x="430" y="446"/>
+  <use href="#star" x="604" y="424"/>
+  <use href="#star" x="30" y="420"/>
+  <use href="#star" x="136" y="82"/>
+  <use href="#star" x="504" y="56"/>
+</svg>

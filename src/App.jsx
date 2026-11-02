@@ -6,7 +6,7 @@ import {
   projects,
 } from './data/content'
 import portrait from './assets/portrait.jpg'
-import heroWorkspace from './assets/hero-workspace.jpg'
+import heroDoodle from './assets/hero-doodle.svg'
 import CaseStudy from './components/CaseStudy'
 import ProjectShowcase from './components/ProjectShowcase'
 import SkillsShowcase from './components/SkillsShowcase'
@@ -30,37 +30,6 @@ import { useReveal } from './hooks/useReveal'
 import './App.css'
 import './site.css'
 import './components/CaseStudy.css'
-
-function AnimatedRole({ prefix, text }) {
-  const words = text.split(' ')
-  let index = 0
-  return (
-    <>
-      <span className="sr-only">
-        {prefix}
-        {text}
-      </span>
-      <span aria-hidden="true">
-        {prefix}
-        <span className="role-word">
-          {words.map((word, w) => (
-            <span className="role-word__w" key={w}>
-              {word.split('').map((ch, c) => (
-                <span
-                  className="role-word__c"
-                  style={{ '--i': index++ }}
-                  key={c}
-                >
-                  {ch}
-                </span>
-              ))}
-            </span>
-          ))}
-        </span>
-      </span>
-    </>
-  )
-}
 
 const JOB_ICONS = {
   architecture: LuBoxes,
@@ -251,78 +220,38 @@ function App() {
         <section className="hero">
           <div className="hero__inner">
             <div className="hero__copy">
-              <p className="hero__kicker">
-                <span className="hero__wave" aria-hidden="true">👋</span> Welcome to my portfolio
+              <p className="hero__status">
+                <span className="hero__dot" aria-hidden="true" />
+                Open to Java backend roles
               </p>
-              <h1 className="hero__name">
-                Hey, I&apos;m {profile.name.split(' ')[0]}.
-              </h1>
-              <p className="hero__role">
-                <AnimatedRole prefix="I'm a " text={profile.role} />
+              <h1 className="hero__name">{profile.name}</h1>
+              <p className="hero__role">{profile.role}</p>
+              <p className="hero__company">
+                {experience[0].company} · 1+ years experience
               </p>
               <p className="hero__tagline">
-                I build <strong>scalable microservices</strong> with{' '}
-                <strong>Java</strong>, <strong>Spring Boot</strong> and{' '}
-                <strong>event-driven</strong> systems, backed by{' '}
-                <strong>PostgreSQL</strong>, <strong>MongoDB</strong> and{' '}
-                <strong>Redis</strong>.
+                I build scalable microservices with Java, Spring Boot and
+                event-driven systems, backed by PostgreSQL, MongoDB and Redis.
               </p>
               <div className="hero__actions">
-                <a className="btn btn--dark btn--pill" href="#projects">
+                <a className="btn btn--dark" href="#projects">
                   View My Work <span aria-hidden="true">→</span>
                 </a>
-                <a
-                  className="btn btn--pill btn--outline"
-                  href={profile.resumeUrl}
-                  download
-                >
+                <a className="btn btn--outline" href={profile.resumeUrl} download>
+                  <LuDownload aria-hidden="true" />
                   Download resume
                 </a>
               </div>
             </div>
 
-            <div
-              className="hero__visual"
-              onMouseMove={(e) => {
-                const r = e.currentTarget.getBoundingClientRect()
-                const x = (e.clientX - r.left) / r.width - 0.5
-                const y = (e.clientY - r.top) / r.height - 0.5
-                const s = e.currentTarget.style
-                s.setProperty('--rx', `${(-y * 8).toFixed(2)}deg`)
-                s.setProperty('--ry', `${(x * 10).toFixed(2)}deg`)
-                s.setProperty('--tx', `${(x * 16).toFixed(1)}px`)
-                s.setProperty('--ty', `${(y * 12).toFixed(1)}px`)
-              }}
-              onMouseLeave={(e) => {
-                const s = e.currentTarget.style
-                ;['--rx', '--ry', '--tx', '--ty'].forEach((p) =>
-                  s.removeProperty(p),
-                )
-              }}
-            >
-              <div className="hero__frame">
-                <img
-                  className="hero__art"
-                  src={heroWorkspace}
-                  alt="Developer workspace illustration"
-                  width={1024}
-                  height={768}
-                />
-              </div>
-              <div className="hero__chip hero__chip--experience">
-                <strong>1+</strong>
-                <span>Years experience</span>
-              </div>
-              <div className="hero__chip hero__chip--role">
-                <span className="hero__chip-icon" aria-hidden="true">
-                  {'</>'}
-                </span>
-                <div>
-                  <strong>{profile.role}</strong>
-                  <span>Java · Spring Boot</span>
-                </div>
-              </div>
-            </div>
+            <figure className="hero__art">
+              <img
+                src={heroDoodle}
+                alt="Illustration of a laptop running code, surrounded by Spring Boot, REST APIs, Security, Redis, RabbitMQ and Kubernetes"
+                width={640}
+                height={570}
+              />
+            </figure>
           </div>
         </section>
 
